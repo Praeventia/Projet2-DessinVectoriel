@@ -1,0 +1,59 @@
+<body>
+
+    <div id="mainContainer">
+
+        <div id="imageGridContainer">
+
+            <div id="imagePreview">
+                <h4>Sauvgarder le dessin</h4>
+
+                <img #preview height="200" width="auto" [src]="imageSource">
+            </div>
+        </div>
+        
+        <div id="name" class="formField">
+            <input class="input" 
+            type="text"
+            minlength="1"
+            maxlength="50"
+            required
+            title=" "
+            [(ngModel)]="currentName">
+            <label> Nom </label>
+            <span class="tooltip">Champ obligatoire (1-50 caractères)</span>
+        </div>
+        
+        <div id="tagForm" class="formField">
+            <input class="input" 
+            type="text"
+            minlength="1"
+            maxlength="50"
+            required
+            title=" "
+            [(ngModel)]="currentTag">
+            <label id="tags"> Etiquette(s) </label>
+            <span class="tooltip">Champ facultatif (1-50 caractères)</span>
+
+            <button id="addTagButton" (click)="addTag()">
+                <fa-icon [icon]="faPlus"></fa-icon>
+            </button>
+        </div>
+        
+        <div id="tagList">
+            <br>
+            <ul>
+                <li *ngFor="let tag of tagsArray">
+                    {{ tag }}
+                    <button class="deleteButton" (click)="deleteTag(tag)">x</button>
+                </li>
+            </ul>
+        </div>
+
+        <div #message id="messageToDisplay">
+            {{ messageToDisplay }}
+        </div>
+        
+        <button *ngIf="!isSaving" id="submissionButton" type="submit" (click)="sendDrawing()">Sauvegarder le dessin</button>
+    </div>
+    
+</body>

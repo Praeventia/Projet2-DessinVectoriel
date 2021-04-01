@@ -1,0 +1,82 @@
+<ng-container *ngIf="isVisible()">
+
+<svg *ngIf="description">
+
+    <g *ngIf="isRed()">
+
+    <polyline  class = "shape"
+
+    [attr.points]="coordinatesToString()" 
+    fill="none"
+    [attr.stroke]="getRed()"
+    [attr.stroke-width]="description.lineWidth -- 10"
+    />
+
+    <circle *ngFor="let coord of description.coordinates" class = "shape"
+
+    [attr.cx.px]="coord.x"
+    [attr.cy.px]="coord.y"
+    [attr.r] = "getRadius() -- 5"
+    [attr.fill]="getRed()" 
+   />
+
+    </g>
+
+
+    <polyline class = "shape"
+
+    (click)="paint(true)"
+    [attr.points]="coordinatesToString()" 
+    fill="none"
+    [attr.stroke]="description.fillColor"
+    [attr.stroke-width]="description.lineWidth"
+    [attr.transform]="'translate('+description.moveCoords.x+','+description.moveCoords.y+')
+                       rotate('+description.rotateAngle+','+description.origin.x+','+description.origin.y+')
+                       rotate('+description.shiftRotateAngle+','+description.shiftOrigin.x+','+description.shiftOrigin.y+')'"
+    (mousedown)="shapeIsClicked()"
+    />
+
+    <circle *ngFor="let coord of description.coordinates" class = "shape"
+
+    (click)="paint(true)"
+    [attr.cx.px]="coord.x"
+    [attr.cy.px]="coord.y"
+    [attr.r] = "getRadius()"
+    [attr.fill]="description.fillColor"
+    />
+
+    <g *ngIf="isErase()">
+
+        <polyline  class = "target"
+
+        (mouseover)="over()"
+        (mouseleave)="leave()"
+    
+        [attr.points]="coordinatesToString()" 
+        fill="none"
+        stroke="none"
+        [attr.stroke-width]="description.lineWidth -- getEtra()*2"
+
+        pointer-events="stroke"
+        />
+    
+        <circle *ngFor="let coord of description.coordinates" class = "taregt"
+
+        (mouseover)="over()"
+        (mouseleave)="leave()"
+    
+        [attr.cx.px]="coord.x"
+        [attr.cy.px]="coord.y"
+        [attr.r.px] = "getRadius() -- getEtra()"
+        fill="none"
+        stroke="none"
+        pointer-events="all"
+
+        />
+    
+        </g>
+
+
+</svg>
+
+</ng-container>

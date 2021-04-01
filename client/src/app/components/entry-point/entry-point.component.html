@@ -1,0 +1,27 @@
+<div id="body">
+
+    <div id="text">
+        <h1 class="text">Bienvenue sur l'application PolyDessin!</h1>
+    </div>
+
+<div id = "liste">
+    <button id="newDraw" type="button" class="btn" (click)="newDraw()">
+        Créer un dessin
+    </button>
+    <button type="button" class="btn"  (click)= "showGallery()">
+        Galerie
+    </button>
+    <button type="button" class="btn" (click)="openGuide()">
+        Guide d'utilisation
+    </button>
+    <button *ngIf="haveOldDraw()===true" id="continueDraw" type="button" class="btn" (click)="goToDrawingWorkPlace()" >
+        Continuer le dessin
+    </button>
+</div>
+
+    <p class="text">
+        Bienvenue sur PolyDessin, une application parfaite pour laisser couler à flots vos idées de graphisme et  créer de fabuleux et uniques dessins!
+        Appuyez sur "Guide d'utilisation" pour connaître le fonctionnement de cette application et de toutes les fonctionnalités qu'elle
+        offre pour l'instant. Lorsque vous êtes prêts, appuyez sur "Créer un dessin" et laissez aller votre imagination!
+    </p>
+</div>

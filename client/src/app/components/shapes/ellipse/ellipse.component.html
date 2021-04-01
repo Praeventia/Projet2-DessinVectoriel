@@ -1,0 +1,60 @@
+<ng-container *ngIf="isVisible()">
+<svg xmlns="http://www.w3.org/2000/svg" *ngIf="description">
+
+        <!-- RED border for eraser -->
+
+        <ellipse *ngIf="isRed()" class = "redBorder"
+
+        [attr.cx]="description.coordinates[0].x + description.width/2" 
+        [attr.cy]="description.coordinates[0].y + description.height/2" 
+        [attr.rx.px]="description.width/2" 
+        [attr.ry.px]="description.height/2"
+        fill="none"
+        [attr.stroke]="getRed()"
+        [attr.stroke-width]="getLineWidth() -- 10"
+        pointer-events="none"
+
+        />
+
+        <!-- actual form -->
+
+        <ellipse class = "shape"
+
+        (click)="paint(true)"
+        (contextmenu)="paint(false)"
+
+        [attr.cx]="description.coordinates[0].x + description.width/2" 
+        [attr.cy]="description.coordinates[0].y + description.height/2" 
+        [attr.rx.px]="description.width/2" 
+        [attr.ry.px]="description.height/2"
+        [attr.fill]="getFill()"
+        [attr.stroke]="description.strokeColor"
+        [attr.stroke-width]="getLineWidth()"
+        [attr.transform]="'translate('+description.moveCoords.x+','+description.moveCoords.y+')
+                           rotate('+description.rotateAngle+','+description.origin.x+','+description.origin.y+')
+                           rotate('+description.shiftRotateAngle+','+description.shiftOrigin.x+','+description.shiftOrigin.y+')'"
+        (mousedown)="shapeIsClicked()"
+        />
+
+        <!-- Insisible form for eraser selection -->
+
+        <ellipse *ngIf="isErase()" class = "target"
+
+        (mouseover)="over()"
+        (mouseleave)="leave()"
+
+        [attr.cx]="description.coordinates[0].x + description.width/2" 
+        [attr.cy]="description.coordinates[0].y + description.height/2" 
+        [attr.rx.px]="description.width/2" 
+        [attr.ry.px]="description.height/2"
+        [attr.stroke-width]="getLineWidth() -- getEtra()*2"
+        [attr.pointer-events]="getEvent()"
+
+        fill="none"
+        stroke="none"
+
+        />
+
+    </svg>
+
+</ng-container>

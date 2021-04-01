@@ -1,0 +1,11 @@
+#drawing-area {
+    border-bottom-style: solid;
+    border-right-style: solid;
+    border-color: black;
+    border-width: 1px;
+    overflow: hidden;
+}
+
+canvas {
+    display: none;
+}

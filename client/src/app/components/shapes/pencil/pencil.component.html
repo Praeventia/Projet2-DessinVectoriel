@@ -1,0 +1,79 @@
+<ng-container *ngIf="isVisible()">
+
+<svg xmlns="http://www.w3.org/2000/svg"  *ngIf="description">
+
+    <filter id="pattern1" primitiveUnits="userSpaceOnUse" filterUnits="userSpaceOnUse">
+        <feTurbulence type="turbulence" baseFrequency="0.60"seed="4" result="p1"/>
+        <feDisplacementMap in2="p1" in="SourceGraphic"
+            scale="35" xChannelSelector="R" yChannelSelector="B"/>
+    </filter>
+    
+    <filter id="pattern2" primitiveUnits="userSpaceOnUse" filterUnits="userSpaceOnUse">
+        <feTurbulence type="turbulence" baseFrequency="0.08"seed="4" result="p2"/>
+        <feDisplacementMap in2="p2" in="SourceGraphic"
+            scale="38" xChannelSelector="R" yChannelSelector="B"/>
+    </filter>
+
+    <filter id="pattern3" primitiveUnits="userSpaceOnUse" filterUnits="userSpaceOnUse">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="6"/>
+    </filter>
+      
+    <filter id="pattern4" primitiveUnits="userSpaceOnUse" filterUnits="userSpaceOnUse">
+        <feTurbulence type="turbulence" baseFrequency="0.93 0.01"
+         seed="4" result="p4"/>
+        <feDisplacementMap in2="p4" in="SourceGraphic"
+            scale="45" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+
+    <filter id="pattern5" primitiveUnits="userSpaceOnUse" filterUnits="userSpaceOnUse">
+        <feTurbulence type="fractalNoise" baseFrequency="0.05 0.95" seed="4" result="p5"/>
+        <feDisplacementMap in2="p5" in="SourceGraphic"
+            scale="20" xChannelSelector="G" yChannelSelector="B"/>
+    </filter>
+
+    <filter id="pattern6" primitiveUnits="userSpaceOnUse" filterUnits="userSpaceOnUse">
+        <feTurbulence type="turbulence" baseFrequency="0.60"seed="4" result="turbulence"/>
+        <feDisplacementMap in2="turbulence" in="SourceGraphic"
+            scale="35" xChannelSelector="R" yChannelSelector="B"/>
+    </filter>
+
+    <polyline *ngIf="isRed()" class = "shape"
+
+        [attr.points]="coordinatesToString()" 
+        style="fill: none; stroke-linecap: round; stroke-linejoin: round"
+        [attr.stroke]="getRed()"
+        [attr.filter]="filter"
+        [attr.stroke-width]="description.lineWidth -- 10"
+    />
+
+    <polyline class = "shape"
+
+        (click)="paint(true)"
+
+        [attr.points]="coordinatesToString()" 
+        style="fill: none; stroke-linecap: round; stroke-linejoin: round"
+        [attr.stroke]="description.fillColor"
+        [attr.filter]="filter"
+        [attr.stroke-width]="description.lineWidth"
+        [attr.transform]="'translate('+description.moveCoords.x+','+description.moveCoords.y+')
+                           rotate('+description.rotateAngle+','+description.origin.x+','+description.origin.y+')
+                           rotate('+description.shiftRotateAngle+','+description.shiftOrigin.x+','+description.shiftOrigin.y+')'"
+        (mousedown)="shapeIsClicked()"
+    />
+
+    <polyline  *ngIf="isErase()" class = "target"
+
+    (mouseover)="over()"
+        (mouseleave)="leave()"
+
+        [attr.points]="coordinatesToString()" 
+        style="fill: none; stroke-linecap: round; stroke-linejoin: round"
+        [attr.stroke]="none"
+        [attr.filter]="filter"
+        [attr.stroke-width]="description.lineWidth -- getEtra()*2"
+
+        pointer-events = "stroke"
+    />  
+</svg>
+
+</ng-container>

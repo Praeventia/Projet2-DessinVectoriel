@@ -1,0 +1,42 @@
+
+<div #svgContainer id="drawing-area"
+                   [style.width.px]="screenWidth"
+                   [style.height.px]="screenHeight" 
+                   [style.background-color]="backgroundColor" 
+                   [ngStyle]="{'filter': filter}"
+    (mousedown)="onMouseEvent($event)"
+    (mousemove)="onMouseEvent($event)"
+    (mouseup)="onMouseEvent($event)"
+    (mouseleave)="onMouseEvent($event)"
+    (click)="onMouseEvent($event)"
+    (dblclick)="onMouseEvent($event)"
+    oncontextmenu="return false;">
+
+    <ng-container *ngFor = "let shape of newShapeStack" [ngSwitch] = "shape.shapeType">
+
+        <app-polygon    *ngSwitchCase = "'polygon'"     [description]="shape" ></app-polygon>
+
+        <app-spray      *ngSwitchCase = "'spray'"       [description]="shape" ></app-spray>
+
+        <app-rectangle  *ngSwitchCase = "'rectangle'"   [description]="shape" ></app-rectangle>
+
+        <app-line       *ngSwitchCase = "'line'"        [description]="shape" ></app-line>
+
+        <app-pencil     *ngSwitchCase = "'pencil'"      [description]="shape" ></app-pencil>
+
+        <app-ellipse    *ngSwitchCase = "'ellipse'"     [description]="shape" ></app-ellipse>
+
+        <app-eraser     *ngSwitchCase = "'eraser'"      [description]="shape" ></app-eraser>
+
+    </ng-container>
+    
+    <app-grid [hidden] = "!gridToggle" [style.height.px]="screenHeight" [style.width.px]="screenWidth"></app-grid>
+    
+      
+
+</div>
+
+<!--created only to be used by the export functionnality-->
+<div #canvas>
+    <canvas></canvas>
+</div>

@@ -1,0 +1,36 @@
+<ul id = "toolOption">
+    <div id="toolGrid">
+        <div class="inputTypes">
+            <form>
+                <label>Activer Grille</label>
+                <input type="checkbox" [checked]="gridToggle" name="grid" (click)="showGrid()"><br>
+                
+                <label>Taille de la grille</label>
+                <input
+                type="text" 
+                [value]="gridSize" 
+                (input)="$event.target.value=verifyInput($event.target.value)">
+                <br>
+
+                <button (click)="increaseGrid()">+</button>
+                <button (click)="decreaseGrid()">-</button>
+
+                <label>Opacité des lignes</label>
+                <input id = "test"
+                    class = "slider" 
+                    type="range"  
+                    min="20" 
+                    max="80" 
+                    [value]="opacity" 
+                    (input)="setOpacity($event.target.value)">
+                    <output class = "field" 
+                    for="test">{{opacity}}</output>
+                <br>
+
+                <label>Activer intérieur coloré de la sélection</label>
+                <input type="checkbox" (click)="toggleSelectionFill()"><br>
+
+            </form>
+        </div>
+    </div>
+</ul>

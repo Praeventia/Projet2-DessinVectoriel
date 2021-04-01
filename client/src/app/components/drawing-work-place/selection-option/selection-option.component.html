@@ -1,0 +1,126 @@
+<div class="panel">
+
+    <div class="tool" id="pen">
+
+        <button class="top" [ngClass]="currentTool === 13 ? 'active' : 'inactive'" (click)="selection()">
+
+            <fa-icon class="fontSizeIcons" [icon]="faBorderStyle"></fa-icon>
+
+            <h1>Sélection</h1>
+    
+        </button>
+
+        <div class="option" *ngIf="currentTool === 13">
+
+            <label>Intérieur coloré</label>
+
+            <input class="selectionOpt" type="checkbox" (click)="toggleSelectionFill()"><br>
+
+        </div>
+
+    </div>
+
+    <div class="tool" id="brush">
+
+        <button class="top inactive" (click)="copy()">
+
+            <fa-icon class="fontSizeIcons" [icon]="faCopy"></fa-icon>
+
+            <h1>Copier</h1>
+    
+        </button>
+
+    </div>
+    
+    <div class="tool" id="brush">
+
+        <button class="top inactive" (click)="cut()">
+
+            <fa-icon class="fontSizeIcons" [icon]="faCut"></fa-icon>
+
+            <h1>Couper</h1>
+    
+        </button>
+
+    </div>
+    
+    <div class="tool" id="brush">
+
+        <button class="top inactive" (click)="paste()">
+
+            <fa-icon class="fontSizeIcons" [icon]="faPaste"></fa-icon>
+
+            <h1>Coller</h1>
+    
+        </button>
+
+    </div>
+    
+    <div class="tool" >
+
+        <button class="top inactive" (click)="duplicate()">
+
+            <fa-icon class="fontSizeIcons" [icon]="faClone"></fa-icon>
+
+            <h1>Dupliquer</h1>
+    
+        </button>
+
+    </div>
+    
+    <div class="tool" id="brush">
+
+        <button class="top inactive" (click)="delete()">
+
+            <fa-icon class="fontSizeIcons" [icon]="faTrash"></fa-icon>
+
+            <h1>Supprimer</h1>
+    
+        </button>
+
+    </div>
+
+    <div class="tool" id="pen">
+
+        <button class="top" [ngClass]="currentTool === 16 ? 'active' : 'inactive'" (click)="grid()">
+
+            <fa-icon class="fontSizeIcons" [icon]="faBorderNone"></fa-icon>
+
+            <h1>Grille</h1>
+    
+        </button>
+
+        <div class="option" *ngIf="currentTool === 16">
+
+            <label>Activer la grille</label>
+
+            <input class="selectionOpt" type="checkbox" [checked]="gridToggle" name="grid" (click)="showGrid()"><br>
+            
+            <label>Taille de la grille</label>
+
+            <input
+            type="text" 
+            class="gridText"
+            [value]="gridSize" 
+            (input)="$event.target.value=verifyInput($event.target.value)">
+
+            <button class="gridBtn" (click)="increaseGrid()">+</button>
+            <button class="gridBtn" (click)="decreaseGrid()">-</button>
+
+            <label>Opacité des lignes {{opacity}} % </label>
+            <input id = "test"
+                class = "slider" 
+                type="range"  
+                min="20" 
+                max="80" 
+                [value]="opacity" 
+                (input)="setOpacity($event.target.value)">
+            <br>
+
+        </div>
+
+    </div>
+
+    <app-color-picker></app-color-picker>
+
+</div>

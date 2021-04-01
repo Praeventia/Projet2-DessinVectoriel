@@ -1,0 +1,67 @@
+<div class="panel">
+
+    <div class="tool" id="pen">
+
+        <button class="top inactive" (click)="openConfirmationModal()">
+
+            <fa-icon class="fontSizeIcons" [icon]="faFile"></fa-icon>
+
+            <h1>Nouveau dessin</h1>
+    
+        </button>
+
+    </div>
+
+    <div class="tool" id="pen">
+
+        <button class="top inactive" (click)="openExportForm()">
+
+            <fa-icon class="fontSizeIcons" [icon]="faFileDownload"></fa-icon>
+
+            <h1>Télécharger</h1>
+    
+        </button>
+
+    </div>
+
+
+    <div class="tool" id="pen">
+
+        <button class="top inactive" (click)="openSaveForm()">
+
+            <fa-icon class="fontSizeIcons" [icon]="faFileExport"></fa-icon>
+
+            <h1>Sauvgarder</h1>
+    
+        </button>
+
+    </div>
+
+    <div class="tool" id="pen">
+
+        <button class="top inactive" (click)="openGallery()">
+
+            <fa-icon class="fontSizeIcons" [icon]="faGripHorizontal"></fa-icon>
+
+            <h1>Galerie</h1>
+    
+        </button>
+
+    </div>
+
+    <div class="tool" id="pen">
+
+        <button class="top inactive" (click)="back()">
+
+            <fa-icon class="fontSizeIcons" [icon]="faArrowAltCircleLeft"></fa-icon>
+
+            <h1>Retour à l'acceuil</h1>
+    
+        </button>
+
+    </div>
+
+    <app-color-picker></app-color-picker>
+
+
+</div>

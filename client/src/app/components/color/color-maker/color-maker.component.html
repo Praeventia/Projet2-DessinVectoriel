@@ -1,0 +1,37 @@
+<div id="page">
+
+    <div id="color" [style.background-color]="getRGBA()" >
+    </div>
+
+    <div id = "selectors">
+
+        <div class = "row">
+            <label>R: </label>
+            <input id = "red" class = "slider" type="range"  min="0" max="255" [value]="red.value" (input)="setValue(red,$event.target.value)">
+            <input class = "field" type="text" pattern="[A-Za-z]{2}"[value]="red.code" (input)="$event.target.value=setCode(red,$event.target.value)">
+        </div>
+
+        <div class = "row">
+            <label>G: </label>
+            <input id = "green" class = "slider" type="range"  min="0" max="255" [value]="green.value" (input)="setValue(green,$event.target.value)">
+            <input class = "field" type="text" [value]="green.code" (input)="$event.target.value=setCode(green,$event.target.value)">
+        </div>
+
+        <div class = "row">
+            <label>B: </label>
+            <input id = "blue" class = "slider" type="range"  min="0" max="255" [value]="blue.value" (input)="setValue(blue,$event.target.value)">
+            <input class = "field" type="text" [value]="blue.code" (input)="$event.target.value=setCode(blue,$event.target.value)">
+        </div>
+
+        <div class = "row">
+            <label>A: </label>
+            <input id = "opacity" class = "slider" type="range"  min="0" max="100" [value]="aValue" (input)="setA($event.target.value)">
+            <input maxlength="3" class = "field" type="text" [value]="aValue" (input)="$event.target.value=setA($event.target.value)">
+        </div>
+
+    </div>
+
+    <button mat-dialog-close >Annuler</button>
+    <button mat-dialog-close (click)="saveColor()">Confirmer</button>
+
+</div>

@@ -1,0 +1,152 @@
+<div class="panel">
+
+    <div class="tool" id="pen">
+
+        <button class="top" [ngClass]="currentTool === 3 ? 'active' : 'inactive'" (click)="pen()">
+
+            <fa-icon class="fontSizeIcons" [icon]="faPenNib"></fa-icon>
+
+            <h1>Crayon</h1>
+    
+        </button>
+
+        <div class="option" *ngIf="currentTool === 3">
+
+            <div class = "width">
+
+                <label>Largeur du trait: {{width}} px </label>
+
+                <input type="range"  
+
+                    min="1" 
+                    max="100" 
+                    [value]="width" 
+                    (input)="setWidth($event.target.value)">
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="tool" id="brush">
+
+        <button class="top" [ngClass]="currentTool === 4 ? 'active' : 'inactive'" (click)="brush()">
+
+            <fa-icon class="fontSizeIcons" [icon]="faBrush"></fa-icon>
+
+            <h1>Pinceau</h1>
+    
+        </button>
+
+        <div class="option" *ngIf="currentTool === 4">
+
+            <div class = "width">
+
+                <label>Largeur du trait: {{width}} px </label>
+                
+                <input type="range"  
+
+                    min="1" 
+                    max="100" 
+                    [value]="width" 
+                    (input)="setWidth($event.target.value)">
+
+            </div>
+
+            <div class = "texture">
+
+                <input checked type="radio" name="texture" value="pattern1" (click)="setTexture(1)">
+                <label> Confettis</label><br>
+                
+                <input type="radio" name="texture" value="pattern2" (click)="setTexture(2)"><label> Tapisserie    </label>
+                <br>
+                                     
+                <input type="radio" name="texture" value="pattern3" (click)="setTexture(3)">
+                <label> Nuage </label>  <br>
+                                     
+                <input type="radio" name="texture" value="pattern4" (click)="setTexture(4)">
+                <label> Interférence </label><br>
+                
+                <input type="radio" name="texture" value="pattern5" (click)="setTexture(5)">
+                <label> Mirage </label><br> 
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="tool" id="pen">
+
+        <button class="top" [ngClass]="currentTool === 10 ? 'active' : 'inactive'" (click)="spray()">
+
+            <fa-icon class="fontSizeIcons" [icon]="faSprayCan"></fa-icon>
+
+            <h1>Aérosol</h1>
+    
+        </button>
+
+        <div class="option" *ngIf="currentTool === 10">
+
+            <div class = "widthRange">
+
+                <label>Largeur du jet: {{width}} px </label>
+                
+                <input type="range"  
+
+                    min="10" 
+                    max="100" 
+                    [value]="width" 
+                    (input)="setWidth($event.target.value)">
+
+            </div>
+
+            <div class = "frequency">
+                <label>Frequence du jet: {{1000/frequency | number : '1.2-2'}} / seconde </label>
+
+                <input type="range"  class="reverse"
+                min="10" 
+                max="50" 
+                [value]="frequency" 
+                (input)="setFrequency($event.target.value)">
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="tool" id="pen">
+
+        <button class="top" [ngClass]="currentTool === 7 ? 'active' : 'inactive'" (click)="eraser()">
+
+            <fa-icon class="fontSizeIcons" [icon]="faEraser"></fa-icon>
+
+            <h1>Efface</h1>
+    
+        </button>
+
+        <div class="option" *ngIf="currentTool === 7">
+
+            <div class = "width">
+
+                <label>Largeur de l'efface: {{width}} px </label>
+
+                <input type="range"  
+
+                    min="3" 
+                    max="50" 
+                    [value]="width" 
+                    (input)="setWidth($event.target.value)">
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <app-color-picker></app-color-picker>
+
+
+</div>

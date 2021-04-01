@@ -1,0 +1,221 @@
+
+#mainContainer {
+    background-color: rgb(32,46,83);
+    border-radius: 15px;
+    color: rgb(255,255,255);;
+    margin-bottom: 50px;
+    height: 620px // 510px;
+}
+
+h3 {
+    text-align: center;
+}
+
+.exportField {
+    margin-left: 20px;
+    display: block;
+}
+
+#wrapper {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
+#exports {
+    margin-left: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+#sendEmail {
+    margin-left: 100px;
+    position: relative;
+    display: inline-block;
+    font-size: medium;
+}
+
+.sendEmailField {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.sendEmailField input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 12px;
+    width: 12px;
+    background-color: rgb(255,255,255);;
+    border-radius: 50%;
+}
+
+.sendEmailField:hover input ~ .checkmark {
+    background-color: lightgray;
+}
+
+.sendEmailField input:checked ~ .checkmark {
+    background-color: rgb(184,141,72);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.sendEmailField input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.sendEmailField .checkmark:after {
+    top: 5px;
+    border-radius: 50%;
+    background: white;
+}
+
+#sendEmailButton {
+    height: 25px;
+    width: 150;
+    justify-self: center;
+    transform: translate(145%, 100%);
+    background-color: rgb(255,255,255);;
+    border: none;
+    border-radius: 10px;
+    outline: 0px;
+    color: rgb(0, 0, 0);;
+    text-align: center;
+    display: inline-block;
+    font-size: 15px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+#sendEmailButton:hover {
+    background-color: rgb(184,141,72);
+    color: rgb(255,255,255);;
+    outline: 0px;
+}
+
+img {
+    border-radius: 25px;
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+fa-icon {
+    cursor: pointer;
+}
+
+fa-icon:hover {
+    color: rgb(184,141,72);
+}
+
+.input {
+    width: 175px;
+    font-size: 12.5px;
+}
+
+svg {
+    position: absolute;
+}
+
+.inputField {
+    margin-left: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+
+#userInputs {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
+.filter {
+    margin-left: 5px;
+    display: inline-block;
+    border-radius: 13px;
+    background-color: lightgray;
+    display: inline-block;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    color: rgb(0,0,0);;
+    cursor: pointer;
+}
+
+.filter:hover {
+    color: rgb(0, 0, 0);
+    background-color: rgb(184,141,72);
+    outline: 0px;
+}
+
+#filters {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
+label {
+    top: 0px;
+    left: 0px;
+    font-size: 18px;
+    color: rgb(255,255,255);
+    transition: all 0.5s ease-in-out;
+    position: absolute;
+}
+
+.input{
+    width: 180px;
+    size: 60;
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid rgb(255,255,255);;
+    border-color: rgb(255,255,255);;
+    outline: 0px;
+    padding: 8px 0 5px 0;
+    font-size: 15px;
+    color: rgb(205, 178, 226);
+    position: relative;
+}
+
+.input:focus {
+    border: none;
+    border-bottom: 1px solid rgb(255,255,255);
+    outline: 0px;
+    border-color: rgb(255,255,255);
+}
+
+input:focus ~ label,
+input:valid ~ label{
+	top:-12px;
+	font-size:12px;
+	
+}
+
+a {
+    color: rgb(255,255,255);;
+}

@@ -1,0 +1,54 @@
+#color{
+    float: left;
+    height: 120px;
+    width: 120px;
+    border-radius: 120px;
+    border: solid 2px;
+}
+
+#selectors{
+    height: 120px;
+}
+
+.row{
+    padding-left: 140px;
+    height: 30px;
+    width: 355px;
+}
+
+.field{
+    width: 40px;
+}
+
+.slider{
+    width: 255px;
+    appearance: none;
+    border-radius: 30px;
+    border: solid 1px;
+    border-color: black;
+    height: 10px;
+    ;
+}
+
+#red{
+    background: linear-gradient(to right,rgb(0, 0, 0), rgb(255, 0, 0));
+}
+
+#green{
+    background: linear-gradient(to right,rgb(0, 0, 0), rgb(0, 255, 0));
+}
+
+#blue{
+    background: linear-gradient(to right,rgb(0, 0, 0), rgb(0, 0, 255));
+}
+
+#opacity{
+    background: linear-gradient(to right,rgb(0, 0, 0, 0), rgb(128, 128, 128));
+}
+
+button{
+    width: 100px;
+    height: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+}

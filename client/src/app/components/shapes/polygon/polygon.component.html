@@ -1,0 +1,44 @@
+<ng-container *ngIf="isVisible()">
+
+<svg *ngIf="description">
+
+    <polygon *ngIf="isRed()" class = "shape"
+
+    [attr.points]="coordinatesToString()" 
+    [attr.stroke-width]="getLineWidth() -- 10"
+    fill="none"
+    [attr.stroke]="getRed()"
+    pointer-events="none"
+
+    />
+
+    <polygon class = "shape"
+
+    (click)="paint(true)"
+    (contextmenu)="paint(false)"
+    [attr.points]="coordinatesToString()" 
+    [attr.fill]="getFill()"
+    [attr.stroke]="description.strokeColor"
+    [attr.stroke-width]="getLineWidth()"
+    [attr.transform]="'translate('+description.moveCoords.x+','+description.moveCoords.y+')
+                       rotate('+description.rotateAngle+','+description.origin.x+','+description.origin.y+')
+                       rotate('+description.shiftRotateAngle+','+description.shiftOrigin.x+','+description.shiftOrigin.y+')'"
+    (mousedown)="shapeIsClicked()"
+    />
+
+    <polygon *ngIf="isErase()" class = "target"
+
+    (mouseover)="over()"
+    (mouseleave)="leave()"
+
+    [attr.points]="coordinatesToString()" 
+    fill="none"
+    stroke="none"
+    [attr.pointer-events]="getEvent()"
+
+    [attr.stroke-width]="getLineWidth() -- getEtra()"
+    />
+
+</svg>
+
+</ng-container>

@@ -1,0 +1,58 @@
+<ng-container *ngIf="isVisible()">
+
+<svg xmlns="http://www.w3.org/2000/svg"  *ngIf="description">
+
+    <rect *ngIf="isRed()" class = "shape"
+  
+    [attr.x]="description.coordinates[0].x" 
+    [attr.y]="description.coordinates[0].y" 
+    [attr.height.px]="description.height" 
+    [attr.width.px]="description.width"
+    [attr.stroke-width]="getLineWidth() -- 10"
+
+    fill="none"
+    [attr.stroke]="getRed()"
+    pointer-events="none"
+
+    /> 
+
+    <rect class = "shape"
+
+    (click)="paint(true)"
+    (contextmenu)="paint(false)"   
+
+    [attr.x]="description.coordinates[0].x" 
+    [attr.y]="description.coordinates[0].y" 
+    [attr.height.px]="description.height" 
+    [attr.width.px]="description.width"
+    [attr.fill]="getFill()"
+    [attr.stroke]="getStroke()"
+    [attr.stroke-width]="getLineWidth()"
+    [attr.stroke-dasharray]="getDash()"
+    [attr.transform]="'translate('+description.moveCoords.x+','+description.moveCoords.y+')
+                       rotate('+description.rotateAngle+','+description.origin.x+','+description.origin.y+')
+                       rotate('+description.shiftRotateAngle+','+description.shiftOrigin.x+','+description.shiftOrigin.y+')'"
+    (mousedown)="shapeIsClicked()"
+
+    />  
+
+    <rect *ngIf="isErase()" class = "target"
+
+    (mouseover)="over()"
+    (mouseleave)="leave()"
+
+    [attr.x]="description.coordinates[0].x" 
+    [attr.y]="description.coordinates[0].y" 
+    [attr.height.px]="description.height" 
+    [attr.width.px]="description.width"
+    [attr.stroke-width]="getLineWidth()  -- getEtra()*2"
+    [attr.pointer-events]="getEvent()"
+
+    fill="none"
+    stroke="none"
+
+    />
+
+</svg>
+
+</ng-container>

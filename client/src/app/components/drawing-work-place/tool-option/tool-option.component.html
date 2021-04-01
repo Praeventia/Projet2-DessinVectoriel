@@ -1,0 +1,208 @@
+<div class="panel">
+
+    <div class="tool" id="pen">
+
+        <button class="top" [ngClass]="currentShape === 2 ? 'active' : 'inactive'" (click)="line()">
+
+            <fa-icon class="fontSizeIcons" [icon]="faGripLines"></fa-icon>
+
+            <h1>Ligne</h1>
+    
+        </button>
+
+        <div class="option" *ngIf="currentShape === 2">
+
+            <div class = "width">
+
+                <label>Largeur du trait:  {{width}} px</label>
+
+                <input type="range"  
+
+                    min="1" 
+                    max="100" 
+                    [value]="width" 
+                    (input)="setWidth($event.target.value)">
+
+            </div>
+
+            <div class="type">
+
+                <input checked type="radio" name="texture" (click)="setDrawType('no_dot')" value="simple">
+                <label> Ligne simple</label><br>
+                
+                <input type="radio" name="texture" (click)="setDrawType('dot')" value="avecPoints">
+                <label> Ligne avec point de jonction</label> <br>
+    
+            </div>
+    
+            <div class = "radius">
+    
+                <label>Rayon des points: {{radius}} px </label>
+    
+                <input type="range"  
+    
+                    min="1" 
+                    max="50" 
+                    [value]="radius" 
+                    (input)="setRadius($event.target.value)">
+        
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <div class="tool" id="rectengle">
+
+        <button class="top" [ngClass]="currentShape === 1 ? 'active' : 'inactive'" (click)="rectangle()">
+
+            <fa-icon class="fontSizeIcons" [icon]="faVectorSquare"></fa-icon>
+
+            <h1>Rectangle</h1>
+    
+        </button>
+
+        <div class="option" *ngIf="currentShape === 1">
+
+            <div class = "width">
+
+                <label>Largeur du contour:  {{width}} px </label>
+                
+                <input type="range"  
+
+                    min="1" 
+                    max="100" 
+                    [value]="width" 
+                    (input)="setWidth($event.target.value)">
+
+            </div>
+
+            <div class="type">
+
+                <input checked type="radio" name="texture" (click)="setDrawType('border_fill')" value="pattern1">
+                <label> Plein avec bordure</label>
+                <br>
+                
+                <input type="radio" name="texture" (click)="setDrawType('fill')" value="pattern2"> 
+                <label> Plein sans bordure</label>
+                <br>
+                
+                <input type="radio" name="texture" (click)="setDrawType('border')" value="pattern3">
+                <label> Bordure seulement</label>   
+                <br>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="tool" id="ellipse">
+
+        <button class="top" [ngClass]="currentShape === 5 ? 'active' : 'inactive'" (click)="ellipse()">
+
+            <fa-icon class="fontSizeIcons" [icon]="faCircle"></fa-icon>
+
+            <h1>Ellipse</h1>
+    
+        </button>
+
+        <div class="option" *ngIf="currentShape === 5">
+
+            <div class = "widthRange">
+
+                <label>Largeur du contour: {{width}} px </label>
+                
+                <input type="range"  
+
+                    min="1" 
+                    max="100" 
+                    [value]="width" 
+                    (input)="setWidth($event.target.value)">
+
+
+            </div>
+
+            <div class="type">
+
+                <input checked type="radio" name="texture" (click)="setDrawType('border_fill')" value="pattern1">
+                <label> Plein avec bordure</label>
+                <br>
+                
+                <input type="radio" name="texture" (click)="setDrawType('fill')" value="pattern2"> 
+                <label> Plein sans bordure</label>
+                <br>
+                
+                <input type="radio" name="texture" (click)="setDrawType('border')" value="pattern3">
+                <label> Bordure seulement</label>   
+                <br>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="tool" id="pen">
+
+        <button class="top" [ngClass]="currentShape === 6 ? 'active' : 'inactive'" (click)="polygone()">
+
+            <fa-icon class="fontSizeIcons" [icon]="faDrawPolygon"></fa-icon>
+
+            <h1>Polygone</h1>
+    
+        </button>
+
+        <div class="option" *ngIf="currentShape === 6">
+
+            <div class = "width">
+
+                <label>Largeur du contour: {{width}} px</label>
+
+                <input type="range"  
+
+                    min="3" 
+                    max="50" 
+                    [value]="width" 
+                    (input)="setWidth($event.target.value)">
+
+            </div>
+
+            <div class = "nbSide">
+
+                <label>Nombre de coté: {{nbSide}}</label>
+
+                <input type="range"  
+
+                    min="3" 
+                    max="12" 
+                    [value]="nbSide" 
+                    (input)="setNbSide($event.target.value)">
+
+            </div>
+
+            <div class="type">
+
+                <input checked type="radio" name="texture" (click)="setDrawType('border_fill')" value="pattern1">
+                <label> Plein avec bordure</label>
+                <br>
+                
+                <input type="radio" name="texture" (click)="setDrawType('fill')" value="pattern2"> 
+                <label> Plein sans bordure</label>
+                <br>
+                
+                <input type="radio" name="texture" (click)="setDrawType('border')" value="pattern3">
+                <label> Bordure seulement</label>   
+                <br>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <app-color-picker></app-color-picker>
+
+
+</div>

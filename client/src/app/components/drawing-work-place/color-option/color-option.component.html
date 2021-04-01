@@ -1,0 +1,72 @@
+<div class="panel">
+
+    <div class="tool">
+
+        <button class="top" [ngClass]="currentTool === 9 ? 'active' : 'inactive'" (click)="dropper()" >
+
+            <fa-icon class="fontSizeIcons" [icon]="faEyeDropper"></fa-icon>
+
+            <h1>Pipette</h1>
+    
+        </button>
+
+    </div>
+
+    <div class="tool">
+
+        <button class="top" [ngClass]="currentTool === 14 ? 'active' : 'inactive'" (click)="bucket()">
+
+            <fa-icon class="fontSizeIcons" [icon]="faFillDrip"></fa-icon>
+
+            <h1>Sceau de peinture</h1>
+    
+        </button>
+
+        <div class="option" *ngIf="currentTool === 14">
+
+            <div class = "width">
+
+                <label>Tolérence de couleur: {{frequency}} %</label>
+                
+                <input type="range"  
+
+                    min="0" 
+                    max="100" 
+                    [value]="frequency" 
+                    (input)="setFrequency($event.target.value)">
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="tool">
+
+        <button class="top" [ngClass]="currentTool === 8 ? 'active' : 'inactive'" (click)="fill()">
+
+            <fa-icon class="fontSizeIcons" [icon]="faBurn"></fa-icon>
+
+            <h1>Applicateur de couleur</h1>
+    
+
+        </button>
+
+    </div>
+
+    <div class="tool">
+
+        <button class="top inactive" (click)="setBackgroundcolor()">
+
+            <fa-icon class="fontSizeIcons" [icon]="faPaintRoller"></fa-icon>
+
+            <h1>Couleur du fond</h1>
+    
+        </button>
+
+    </div>
+
+    <app-color-picker></app-color-picker>
+
+
+</div>

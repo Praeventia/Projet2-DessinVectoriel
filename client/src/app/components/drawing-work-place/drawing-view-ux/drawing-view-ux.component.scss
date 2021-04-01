@@ -1,0 +1,152 @@
+#body {
+    width: 100%;
+    overflow-y: hidden;
+}
+
+#pane {
+    background-color: rgb(150, 150, 150);
+    position: fixed;
+    width: 280px;
+    height: 100%;
+    float: left;
+}
+
+#menu {
+    position: fixed;
+    width: 45px;
+    height: 100%;
+    background-color: rgb(32,46,83);
+}
+
+.icon {
+    height: 45px;
+    width: 45px;
+    float: left;
+    border: none;
+    background-color: rgb(32,46,83);
+}
+
+.icon:hover {
+    background-color: lightgray;
+}
+
+.panel{
+    padding-left: 45px;
+    width: 235px;
+    height: 100%;
+    background-color: rgb(150, 150, 150);
+    color: white;
+
+}
+#last {
+    margin-bottom: 150px;
+}
+
+.top {
+    width: 235px;
+    height: 30px;
+    vertical-align: middle;
+    border: none;
+}
+
+.top:hover {
+    opacity: 0.5;
+}
+
+.fontSizeIcons {
+    padding: 2px;
+    font-size: 25px;
+    opacity: 0.8;
+    float: left;
+}
+
+.reverse {
+    direction: rtl
+}
+
+h1 {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.option {
+    margin: 0px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: rgb(99, 39, 64);
+    font-size: 12px;
+}
+
+input {
+    width: 100%;
+}
+
+.texture input {
+    font-size: 20px;
+    width: 30px;
+}
+
+.type input {
+    font-size: 20px;
+    width: 30px;
+}
+
+.selectionOpt {
+    width: 30%;
+}
+
+.btnGrid {
+    width: 15%;
+}
+
+.gridText {
+    width: 70%;
+}
+
+.icon .active {
+    opacity: 1;
+    color: rgb(184,141,72);
+}
+
+.icon .inactive {
+    color: rgb(0, 0, 0);
+}
+
+.tool .active {
+    background-color: rgb(184,141,72);
+}
+
+.tool .fontSizeIcons{
+    opacity: 0.8;
+    padding-top: 4px;
+    font-size: 13px;
+    overflow: hidden;
+}
+
+.tool .active .fontSizeIcons{
+    opacity: 1;
+    background-color: rgb(184,141,72);
+}
+
+.tool .inactive {
+    background-color: lightgray;
+}
+
+#workplace {
+    padding-right: 4px;
+    padding-top: 0px;
+    padding-bottom: 8px;
+    position: absolute;
+    background-color: rgb(150, 150, 150);
+    padding-left: 285px;
+    float: left;
+}
+
+#guide {
+    padding: 2px;
+    font-size: 30px;
+    color: rgb(167, 145, 100);
+    opacity: 1;
+}

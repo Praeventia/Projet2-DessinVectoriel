@@ -1,0 +1,8 @@
+export enum SELECT_PATTERN {
+    PATTERN1,
+    PATTERN2,
+    PATTERN3,
+    PATTERN4,
+    PENCIL_PATTERN,
+    PATTERN5
+}

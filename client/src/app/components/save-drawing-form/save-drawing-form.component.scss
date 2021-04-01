@@ -1,0 +1,202 @@
+body {
+    background-color: rgb(32,46,83);
+    border-radius: 15px;
+}
+
+#mainContainer{
+    height: 400px;
+    display: grid;
+    align-content: stretch;
+    align-items: stretch;
+    grid-template-columns: [firstColumn] 20% [secondColumn] 20% [thirdColumn] 20% [forthColumn] 20% [fifth] 20%;
+    grid-template-rows: [firstRow] 70% [secondRow] 10% [thirdRow] 10% [forthRow] 10%;
+    grid-template-areas: 
+    "imageGridContainer imageGridContainer imageGridContainer imageGridContainer imageGridContainer"
+    "name name tagForm tagForm tagForm "
+    "tagList tagList tagList tagList tagList"
+    ". submissionButton submissionButton . .";
+
+}
+
+#imageGridContainer {
+    grid-area: imageGridContainer;
+    border-radius: 15px;
+    text-align: center;
+}
+
+#imagePreview {
+    display: inline-block;
+    color: rgb(255,255,255);
+}
+
+img {
+    border-radius: 25px;
+}
+
+label {
+    top: 0px;
+    left: 0px;
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    transition: all 0.5s ease-in-out;
+    position: absolute;
+}
+
+#name {
+    grid-area: name;
+    transform: translate(0%, 25%);
+    margin-left: 20px;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.tooltip {
+    visibility: hidden;
+    background-color: rgb(255, 255, 255);
+    width: 125px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    border-radius: 5px 20px 5px;
+    padding-top: 5px;
+    padding-right: 0px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    position: absolute;
+    z-index: 1;
+    font-size: 14.5px;
+    text-align: left;
+}
+
+#tagForm .tooltip {
+    padding-left: 18px;
+    width: 85px;
+}
+
+.formField:hover .tooltip {
+    visibility: visible;
+    transform: translate(-90%, 50%);
+}
+
+#tagForm {
+    grid-area: tagForm;
+    transform: translate(0%, 25%);
+    margin-bottom: 25px;
+    margin-left: 50px;
+    position: relative;
+}
+
+#addTagButton {
+    grid-area: addTagButton;
+    cursor: pointer;
+    right: 0%;
+    font-size: 25px;
+    height: 20px;
+    width: 20px;
+    padding-top: 2px;
+    text-align: center;
+    border-radius: 3px;
+    transform: translate(0%, 8%);
+    background-color: rgb(167, 145, 100);
+    border: none;
+    outline: 0px;
+    font-size: 8px;
+}
+
+.input{
+    width: 180px;
+    size: 60;
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid rgb(255, 255, 255);
+    border-color: rgb(255, 255, 255);
+    outline: 0px;
+    padding: 8px 0 5px 0;
+    font-size: 15px;
+    color: rgb(255, 255, 255);
+    position: relative;
+}
+
+.input:focus {
+    border: none;
+    border-bottom: 1px solid rgb(255, 255, 255);
+    outline: 0px;
+    border-color: rgb(255, 255, 255);
+}
+
+input:focus ~ label,
+input:valid ~ label{
+	top:-12px;
+	font-size:12px;
+	
+}
+
+#tagList {
+    grid-area: tagList;
+    transform: translate(0%, -35%);
+}
+
+#tagList li {
+    border-radius: 13px;
+    background-color: rgb(255, 255, 255);
+    display: inline;
+    padding: 5px;
+    text-decoration: none;
+    font-size: 15px;
+    color: rgb(0, 0, 0);
+    //position: relative;
+}
+
+.deleteButton {
+    cursor: pointer;
+    top: 50%;
+    right: 0%;
+    padding-left: 15px;
+    transform: translate(0%, -5%);
+    border-radius: 15px;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    outline: 0px;
+}
+
+.deleteButton:hover {
+    color: rgb(167, 145, 100);
+    background-color: rgb(255, 255, 255);
+    outline: 0px;
+}
+
+#submissionButton {
+    grid-area: submissionButton;
+    height: 25px;
+    width: 150;
+    justify-self: center;
+    transform: translate(35%, 100%);
+    background-color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 10px;
+    outline: 0px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    display: inline-block;
+    font-size: 15px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+#messageToDisplay {
+    text-justify: center;
+    top: 400px;
+    margin: 20px;
+    position: absolute;
+    color: rgb(255, 255, 255);
+    margin: auto;
+    padding-left: 15px;
+    width: 560px;
+}
+
+#submissionButton:hover {
+    background-color: rgb(167, 145, 100);
+    color: rgb(0, 0, 0);
+    outline: 0px;
+}

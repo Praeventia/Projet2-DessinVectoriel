@@ -1,0 +1,21 @@
+<div id="box">
+    <button (click)="pickPrimary()" [style.background-color]="this.colorService.getRGBA(true)" class = "color" id="Primary"></button>
+    
+    <div id="rigth">
+        <button (click)="switchColor()" id="switch"><fa-icon class="fontSizeIcons" [icon]="faExchangeAlt"></fa-icon></button>
+        <button (click)="pickSecondary()" [style.background-color]="this.colorService.getRGBA(false)" class = "color" id="secondary"></button>
+    </div>
+    
+    <div id="old">
+
+        <ng-container *ngFor = "let previous of previousColors; let i = index">
+            <button *ngIf="this.colorService.getColor(i) !== 'none'"
+                class = "previous-color" [style.background-color]="this.colorService.getColor(i)"
+                (click)="switchOldColor(true,i)" (contextmenu)="switchOldColor(false,i)">
+            </button> 
+        </ng-container>
+
+    </div>
+    
+       
+</div>

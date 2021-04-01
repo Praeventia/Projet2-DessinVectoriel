@@ -1,0 +1,82 @@
+<body>
+
+    <div id="gallery">
+        <h1>Galerie</h1>
+        <p #message id="messageToDisplay">
+            {{ messageToDisplay }}
+        </p>
+    </div>
+
+    <div id="body">
+
+        <div id="searchBox">
+            <input id="searchField" type="text" (input)="searchTags($event.target.value)"> 
+            <a id="searchButton" (click)="searchTags()">
+                <fa-icon [icon]="faSearch"></fa-icon>
+            </a>
+
+            <select id="suggestion" (change)="addTag($event.target.value)">
+                <option class = "opt" *ngFor="let tag of validTags" (value)="tag">{{tag}}</option>
+            </select>
+
+        </div>
+
+        <div *ngFor="let tag of selectedTags">
+            <p >{{tag}}</p>
+            <button (click)="removeTag(tag)">X</button>
+        </div>
+
+        <div id="drawContainer">
+
+        <br>
+        <div #error style="display: none; color: rgb(233, 206, 255); margin: auto; padding-left: 15px;">
+        {{errorMessage}}
+        </div>
+        <br>
+
+        <ul id="drawingList">
+
+            <div class="msg" *ngIf="drawingsToDisplay.length === 0">
+                <p>Aucun dessin n'a été trouvé</p>
+            </div>
+
+            <div class="msg" *ngIf="!loaded">
+                <p>Loading...</p>
+            </div>
+
+            <ng-container *ngFor="let drawing of drawingsToDisplay">
+
+                <div class = "drawing" *ngIf="shouldDisplay(drawing)" (click)="select(drawing)"
+                [ngClass]="{'selected': isSelected(drawing), 'not-selected': !isSelected(drawing)}">
+
+                    <img [src]="drawing.drawingURI">
+                    
+                    <div class="name">
+                        {{ drawing.name }}
+                    </div>
+
+                    <select class="tags">
+                        <option>tags...</option>
+                        <option class="tag" *ngFor="let tag of drawing.tags">
+                            {{ tag }}
+                        </option>
+                    </select>
+                
+                </div>
+            </ng-container>
+        </ul>
+
+    </div>
+
+    </div>
+    
+    <div class="toCenter">
+        <button mat-dialog-close class="btn btn-primary" >Revenir à l'accueil</button>
+        <button *ngIf="selectedDrawing&&confirmLoad" class="btn btn-primary" id="load" (click)="loadDrawing(false)">Charger le dessin</button>
+        <button *ngIf="!confirmLoad" class="btn btn-primary" id="confirm" (click)="loadDrawing(true)">Confirmé le chargement</button>
+        <button *ngIf="selectedDrawing" class="btn btn-primary" id="delete" (click)="deleteDrawing()">Supprimer le dessin</button>
+    </div>
+    
+</body>
+
+

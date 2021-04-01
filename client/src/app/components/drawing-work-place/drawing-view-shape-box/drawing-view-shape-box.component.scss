@@ -1,0 +1,61 @@
+/*ToolOption Style*/
+#toolOption {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 210px 1fr 1fr;
+    margin: 0;
+    padding: 0;
+    width: 240px;
+    background-color: rgb(32,46,83);
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    top:0;
+    left: 60px;
+    list-style-type: none;
+  }
+  #toolGrid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    align-self: stretch;
+    align-items: center;
+  }
+  .fontSizeIcons{
+    font-size: 40px;
+  }
+
+  li {
+    cursor: pointer;
+  }
+
+  a {
+    text-align: center;
+    border: solid;
+    border-color: rgb(37,32,65);
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    opacity: 0.6;
+    transition: 0.3s;
+    
+  }
+      
+  li a:hover {
+      background-color: #555;
+      color: white;
+      opacity: 1;
+  }
+  
+  .colorInactive {
+  }
+  .colorActive{
+    background-color: #555;
+    color: white;
+    opacity: 1.5;
+  }
+  

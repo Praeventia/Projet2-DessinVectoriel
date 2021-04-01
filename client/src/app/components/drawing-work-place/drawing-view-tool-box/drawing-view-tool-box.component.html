@@ -1,0 +1,133 @@
+<ul id = "toolOption">
+    <div id="toolGrid">
+        <li><a [ngClass]="currentTool == 3 ? 'colorActive':'colorInactive'" (click) ="drawPen()"><fa-icon class="fontSizeIcons" [icon]="faPenNib"></fa-icon></a></li>
+        <li><a [ngClass]="currentTool == 7 ? 'colorActive':'colorInactive'" (click) ="erase()"><fa-icon class="fontSizeIcons" [icon] = "faEraser"></fa-icon></a></li>
+        <li><a [ngClass]="currentTool == 4 ? 'colorActive':'colorInactive'" (click) ="brush()"><fa-icon class="fontSizeIcons" [icon] = "faBrush"></fa-icon></a></li>
+        <li><a [ngClass]="currentTool == 8 ? 'colorActive':'colorInactive'" (click) ="fill()"><fa-icon class="fontSizeIcons" [icon] = "faOilCan"></fa-icon></a></li>
+        <li><a [ngClass]="currentTool == 9 ? 'colorActive':'colorInactive'" (click) ="dropper()"><fa-icon class="fontSizeIcons" [icon] = "faEyeDropper"></fa-icon></a></li>
+        <li><a [ngClass]="currentTool == 10 ? 'colorActive':'colorInactive'" (click) ="spray()"><fa-icon class="fontSizeIcons" [icon] = "faSprayCan"></fa-icon></a></li>
+        <li><a [ngClass]="currentTool == 14 ? 'colorActive':'colorInactive'" (click) ="bucket()"><fa-icon class="fontSizeIcons" [icon] = "faFillDrip"></fa-icon></a></li>
+    </div>
+    <div>
+        <ng-container *ngIf="currentTool === 3">
+            <div id="pencil">
+                <h3 style="color: blanchedalmond; font-weight: 5;">Crayon</h3>
+                <div class = "widthRange">
+                    <label>largeur du trait </label>
+                    <input id = "test" 
+                    class = "slider" 
+                    type="range"  
+                    min="1" 
+                    max="100" 
+                    [value]="inputWidthValue" 
+                    (input)="setWidthValue($event.target.value)">
+                    <output class = "field" 
+                    for="test">{{inputWidthValue}}</output>
+                </div>
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="currentTool === 7">
+            <div id="eraser">
+                <h3 style="color: blanchedalmond; font-weight: 5;">Eraser</h3>
+                <div class = "widthRange">
+                    <label>largeur de l'éfface </label>
+                    <input id = "test" 
+                    class = "slider" 
+                    type="range"  
+                    min="3" 
+                    max="50" 
+                    [value]="inputWidthValue" 
+                    (input)="setWidthValue($event.target.value)">
+                    <output class = "field" 
+                    for="test">{{inputWidthValue}}</output>
+                </div>
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="currentTool === 14">
+            <div id="eraser">
+                <h3 style="color: blanchedalmond; font-weight: 5;">Sceau de peinture</h3>
+                <div class = "widthRange">
+                    <label>tolerence de couleur </label>
+                    <input id = "test" 
+                    class = "slider" 
+                    type="range"  
+                    min="0" 
+                    max="100" 
+                    [value]="frequency*100" 
+                    (input)="setFrequency($event.target.value/100)">
+                    <output class = "field" 
+                    for="test">{{frequency*100 | number : '1.2-2'}} %</output>
+                </div>
+            </div>
+        </ng-container>
+       
+        <ng-container *ngIf="currentTool === 4">
+            <div id="Brush">
+                <h3 style="color: blanchedalmond; font-weight: 5;">Pinceau</h3>
+                <div class = "widthRange">
+                    <label>largeur du trait </label>
+                    <input id = "test" 
+                    class = "slider" 
+                    type="range"  
+                    min="1" 
+                    max="100" 
+                    [value]="inputWidthValue" 
+                    (input)="setWidthValue($event.target.value)">
+                    <output class = "field" 
+                    for="test">{{inputWidthValue}}</output>
+                </div>
+                
+                <div class="patternTypes">
+                    <label> texture 1</label>
+                    <input checked type="radio" name="texture" value="pattern1" (click)="setTexture(1)"><br>
+                    
+                    <label> texture 2</label>
+                    <input type="radio" name="texture" value="pattern2" (click)="setTexture(2)"> <br>
+                    
+                    <label> texture 3</label>                        
+                    <input type="radio" name="texture" value="pattern3" (click)="setTexture(3)"><br>
+                    
+                    <label> texture 4</label>                     
+                    <input type="radio" name="texture" value="pattern4" (click)="setTexture(4)"><br>
+                    
+                    <label> texture 5</label>
+                    <input type="radio" name="texture" value="pattern5" (click)="setTexture(5)"><br>                    
+                </div>   
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="currentTool === 10">
+            <div id="spray">
+                <h3 style="color: blanchedalmond; font-weight: 5;">Aérosol</h3>
+                <div class = "widthRange">
+                    <label>largeur de l'aérosol </label>
+                    <input id = "test" 
+                    class = "slider" 
+                    type="range"  
+                    min="10" 
+                    max="50" 
+                    [value]="inputWidthValue" 
+                    (input)="setWidthValue($event.target.value)">
+                    <output class = "field" 
+                    for="test">{{inputWidthValue}}</output>
+                </div>
+
+                <div class = "frequency">
+                    <label>frequence du jet (/s)</label>
+                    <input id = "test" 
+                    class = "slider" 
+                    type="range"  
+                    min="10" 
+                    max="50" 
+                    [value]="frequency" 
+                    (input)="setFrequency($event.target.value)">
+                    <output class = "field" 
+                    for="test">{{1000/frequency | number : '1.2-2'}}</output>
+                </div>
+                
+            </div>
+        </ng-container>
+    </div>
+</ul>

@@ -1,0 +1,52 @@
+<div id="mainGridContainer"  [ngClass]="pushActive == false ? 'noPushDrawingArea':'pushDrawingArea'">
+
+    <!--Work zone and the drawing zone-->
+    <div>
+      <app-drawing-area #drawingArea id="drawingArea"></app-drawing-area> 
+    </div>
+
+  <div>
+    <ul id="grid-container">
+      <div class="grid-item">
+        <li class="sub-item hover"><a [ngClass]="activeNavBar == 1 ? 'colorActive':'colorInactive'" (click)="selector()"><fa-icon [icon]="faHandRock"></fa-icon></a></li>
+        <li class="sub-item hover"><a [ngClass]="activeNavBar == 0 ? 'colorActive':'colorInactive'" (click)="openNavTools()"><fa-icon [icon]='activeIcon'></fa-icon></a></li>
+        <li class="sub-item hover"><a [ngClass]="activeNavBar == 2 ? 'colorActive':'colorInactive'" (click)="shape()"><fa-icon [icon]='activeShape'></fa-icon></a></li>
+      </div>
+
+      <div>
+        <li *ngIf = "activeNavBar == 1" class="sub-item hover"><a (click)="copy()"><fa-icon [icon]="faCopy"></fa-icon> </a></li>
+        <li *ngIf = "activeNavBar == 1" class="sub-item hover"><a (click)="paste()"><fa-icon [icon]="faPaste"></fa-icon> </a></li>
+        <li *ngIf = "activeNavBar == 1" class="sub-item hover"><a (click)="duplicate()"><fa-icon [icon]="faClone"></fa-icon> </a></li>
+        <li *ngIf = "activeNavBar == 1" class="sub-item hover"><a (click)="cut()"><fa-icon [icon]="faCut"></fa-icon> </a></li>
+        <li *ngIf = "activeNavBar == 1" class="sub-item hover"><a (click)="delete()"><fa-icon [icon]="faTrash"></fa-icon> </a></li>
+        <li class="sub-item hover"><a (click)="setBackgroundcolor()"><fa-icon [icon]="faPaintRoller"></fa-icon> </a></li>
+        <li id="colorPickerBox"><app-color-picker></app-color-picker></li>
+      </div>
+
+      <div class="grid-item">
+        <li><a class="hover" (click)="openExportForm()"><fa-icon [icon]="faFileDownload"></fa-icon></a></li>
+        <li><a class="hover" (click)="openSaveForm(drawingArea)"><fa-icon [icon]="faFileSave"></fa-icon></a></li>
+        <li><a [ngClass]="undoIsEmpty == true ? 'buttonDisabled':'hover'" (click)="undo()"><fa-icon [icon]="faUndo"></fa-icon></a></li>
+        <li><a [ngClass]="redoIsEmpty == true ? 'buttonDisabled':'hover'" (click)="redo()"><fa-icon [icon]="faRedo"></fa-icon></a></li>
+        <li><a class="hover" [ngClass]="activeNavBar == 4 ? 'colorActive':'colorInactive'" (click)="openOption()"><fa-icon [icon]="faCog"></fa-icon></a></li>
+        <li><a class="hover" (click)="openHelp()"><fa-icon [icon]="faInfoCircle"></fa-icon></a></li>
+      </div>
+    </ul>
+  </div>
+
+  <!--Tool box-->
+  <div [hidden]= "!(activeNavBar == 0)">
+    <app-drawing-view-tool-box></app-drawing-view-tool-box>
+  </div>
+
+  <!--Shape box-->
+  <div [hidden]= "!(activeNavBar == 2)">
+    <app-drawing-view-shape-box></app-drawing-view-shape-box>
+  </div>
+
+  <!--Options Box-->
+  <div [hidden]= "!(activeNavBar == 4)">
+    <app-drawing-options></app-drawing-options>
+  </div>
+  
+</div>

@@ -1,0 +1,31 @@
+<div id="body">
+    <h1>Paramètre du dessin</h1>
+
+    <div id="center">
+
+        <div id="dimensions">
+            <label>Largeur: </label>
+            <input 
+                type="text" 
+                [value]="screenWidth" 
+                (input)="$event.target.value=verifyInput(false,$event.target.value)">
+            <br>
+
+            <label>Hauteur:</label>
+            <input 
+                type="text" 
+                [value]="screenHeight" 
+                (input)="$event.target.value=verifyInput(true,$event.target.value)">
+            <br>
+
+        </div>
+
+        <button (click)="newColor()"id="color" [style.background-color]="this.colorService.getRGBA(true)"></button>
+
+    </div>
+
+    <button class="confirm" mat-dialog-close (click)="goToDrawingWorkPlace()">Créer le dessin</button>
+    
+    <button class="confirm" mat-dialog-close>Annuler</button>
+
+</div>

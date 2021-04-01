@@ -1,0 +1,97 @@
+<div id="body">
+
+    <!-- drawing area -->
+    <div id="workplace">
+        <app-drawing-area #drawingArea id="drawingArea"></app-drawing-area> 
+    </div>
+
+    <!-- main menu -->
+    <div id="pane">
+
+        <div id="menu">
+
+            <button 
+                class="icon" 
+                (click)="visibleOption = 'selection'">
+
+                <fa-icon class="fontSizeIcons" [ngClass]="visibleOption === 'selection' ? 'active' : 'inactive'"   [icon]="faHandRock"></fa-icon>
+            </button>
+
+            <button 
+                class="icon" 
+                (click)="visibleOption = 'pen'">
+                
+                <fa-icon class="fontSizeIcons" [ngClass]="visibleOption === 'pen' ? 'active' : 'inactive'"   [icon]="faPencilRuler"></fa-icon>
+            </button>
+
+            <button 
+                class="icon" 
+                (click)="visibleOption = 'tool'">
+                
+                <fa-icon class="fontSizeIcons" [ngClass]="visibleOption === 'tool' ? 'active' : 'inactive'"   [icon]="faShapes"></fa-icon>
+            </button>
+
+            <button 
+                class="icon" id="last"
+                (click)="visibleOption = 'color'">
+                
+                <fa-icon class="fontSizeIcons" [ngClass]="visibleOption === 'color' ? 'active' : 'inactive'"   [icon]="faPaintRoller"></fa-icon>
+            </button>
+
+
+            <button 
+                class="icon" 
+                (click)="visibleOption = 'file'">
+                
+                <fa-icon class="fontSizeIcons" [ngClass]="visibleOption === 'file' ? 'active' : 'inactive'"   [icon]="faFile"></fa-icon>
+            </button>
+
+            <button 
+                class="icon" 
+                (click)="undo()">
+                <fa-icon  class="fontSizeIcons inactive" [icon]="faUndo"></fa-icon>
+            </button>
+
+            <button 
+                class="icon" 
+                (click)="redo()">
+                <fa-icon  class="fontSizeIcons inactive" [icon]="faRedo"></fa-icon>
+            </button>
+
+            <button 
+                class="icon" 
+                (click)="modal.openGuideModal()">
+                <fa-icon  class="fontSizeIcons" id="guide" [icon]="faInfoCircle"></fa-icon>
+            </button>
+
+        </div >
+
+        <!-- show good options -->
+
+        <div [ngSwitch]="visibleOption">
+
+            <div *ngSwitchCase="'selection'">
+                <app-selection-option #selection [drawingArea]="drawingArea"></app-selection-option>
+            </div>
+            
+            <div *ngSwitchCase="'pen'">
+                <app-pen-option #pen></app-pen-option>
+            </div>
+            
+            <div *ngSwitchCase="'tool'">
+                <app-tool-option #tool></app-tool-option>
+            </div>
+
+            <div *ngSwitchCase="'color'">
+                <app-color-option #color></app-color-option>
+            </div>
+
+            <div *ngSwitchCase="'file'">
+                <app-file-option #file [drawingArea]="drawingArea"></app-file-option>
+            </div>
+
+        </div>
+
+    </div>  
+
+</div>

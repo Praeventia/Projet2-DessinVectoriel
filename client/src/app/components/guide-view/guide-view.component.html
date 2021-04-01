@@ -1,0 +1,92 @@
+<div id=left>
+
+<div id = "menu">
+
+    <button (click)="setGuidePage(1)" class="btn topic">Bienvenue</button>
+
+    <button class="btn category" (click)="toggleEntryPoint()">Point d'entrée...</button>
+    <div class = "toggle" *ngIf = "showEntryPoint === true">
+        <button (click)="setGuidePage(2)" class = btn>Créer un nouveau dessin</button>
+        <button (click)="setGuidePage(3)" class = btn>Ouvrir la galerie</button>
+        <button (click)="setGuidePage(4)" class = btn>Ouvrir le guide d'utilisation</button>
+        <button (click)="setGuidePage(5)" class = btn>Continuer le dessin</button>
+        <button (click)="setGuidePage(6)" class = btn>Sauvegarde automatique</button>
+    </div>
+
+    <button (click)="setGuidePage(7)" class="btn">Vue dessin</button>
+
+    <button (click)="setGuidePage(8)" class="btn">Dessin vectoriel</button>
+
+    <button class="btn category" (click)="toggleTools()">Options</button>
+    <div class = "toggle" *ngIf = "showTools === true">
+        <button (click)="setGuidePage(9)" class = btn>Option de fichier</button>
+        <button (click)="setGuidePage(10)" class = btn>Sauvegarder le dessin</button>
+        <button (click)="setGuidePage(11)" class = btn>Exporter le dessin</button>
+    </div>
+
+    <button class="btn category" (click)="toggleTools()">Outils de traçage</button>
+    <div class = "toggle" *ngIf = "showTools === true">
+        <button (click)="setGuidePage(12)" class = btn>Crayon</button>
+        <button (click)="setGuidePage(13)" class = btn>Pinceau</button>
+        <button (click)="setGuidePage(14)" class = btn>Plume</button>
+    </div>
+
+    <button class="btn category" (click)="toggleTools()">Outils de formes</button>
+    <div class = "toggle" *ngIf = "showTools === true">
+        <button (click)="setGuidePage(15)" class = btn>Rectangle</button>
+        <button (click)="setGuidePage(16)" class = btn>Ellipse</button>
+        <button (click)="setGuidePage(17)" class = btn>Ligne</button>
+        <button (click)="setGuidePage(18)" class = btn>Étampe</button>
+        <button (click)="setGuidePage(19)" class = btn>Texte</button>
+    </div>
+
+    <button class="btn category" (click)="toggleTools()">Outils de couleur</button>
+    <div class = "toggle" *ngIf = "showTools === true">
+        <button (click)="setGuidePage(20)" class = btn>Couleur</button>
+        <button (click)="setGuidePage(21)" class = btn>Applicateur de couleur</button>
+        <button (click)="setGuidePage(22)" class = btn>Sceau de peinture</button>
+        <button (click)="setGuidePage(23)" class = btn>Efface</button>
+        <button (click)="setGuidePage(24)" class = btn>Pipette</button>
+    </div>
+
+    <button class="btn category" (click)="toggleTools()">Outils de sélection</button>
+    <div class = "toggle" *ngIf = "showTools === true">
+        <button (click)="setGuidePage(25)" class = btn>Rectangle de sélection</button>
+        <button (click)="setGuidePage(26)" class = btn>Inversion de sélection</button>
+        <button (click)="setGuidePage(27)" class = btn>Déplacement</button>
+        <button (click)="setGuidePage(28)" class = btn>Redimensionnement</button>
+        <button (click)="setGuidePage(29)" class = btn>Rotation</button>
+        <button (click)="setGuidePage(30)" class = btn>Presse-papier</button>
+    </div>
+
+    <button (click)="setGuidePage(31)" class="btn">Annuler-refaire</button>
+
+    <button class="btn category" (click)="toggleTools()">Outils généraux</button>
+    <div class = "toggle" *ngIf = "showTools === true">
+        <button (click)="setGuidePage(32)" class = btn>Grille</button>
+        <button (click)="setGuidePage(33)" class = btn>Magnétisme</button>
+    </div>
+
+    <button (click)="setGuidePage(34)" class="btn">Raccourcis</button>
+    
+</div>
+
+<div id="btns">
+        
+    <button *ngIf="actualPage>1" (click)="nextPage(false)" class="move">Précédent</button>
+    
+    <button *ngIf="actualPage<34" (click)="nextPage(true)" class="move">Suivant</button>
+
+    <br>
+
+    <button mat-dialog-close id="back">Retour</button>
+</div>
+
+</div>
+
+<div id="text">        
+
+    <h1 id = "title">{{guideBook[0].title}}</h1>
+    <p class = middle>{{guideBook[0].text}}</p>
+
+</div>

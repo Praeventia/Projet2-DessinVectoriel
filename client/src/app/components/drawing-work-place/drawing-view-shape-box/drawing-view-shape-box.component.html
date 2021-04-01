@@ -1,0 +1,157 @@
+<ul id = "toolOption">
+    
+    <div id="toolGrid">
+        <li><a [ngClass]="currentShape == 1 ? 'colorActive':'colorInactive'" (click) ="drawRectangle()"><fa-icon class="fontSizeIcons" [icon]="faVectorSquare"></fa-icon></a></li>
+        <li><a [ngClass]="currentShape == 2 ? 'colorActive':'colorInactive'" (click) ="drawLine()"><fa-icon class="fontSizeIcons" [icon] = "faGripLines"></fa-icon></a></li>
+        <li><a [ngClass]="currentShape == 5 ? 'colorActive':'colorInactive'" (click) ="drawEllispe()"><fa-icon class="fontSizeIcons" [icon] = "faCircle"></fa-icon></a></li>
+        <li><a [ngClass]="currentShape == 6 ? 'colorActive':'colorInactive'" (click) ="drawPolygone()"><fa-icon class="fontSizeIcons" [icon] = "faDrawPolygon"></fa-icon></a></li>
+    </div>
+
+    <div>
+        <ng-container *ngIf="currentShape === 1">
+            <div id="rectangle">
+                <h3 style="color: blanchedalmond; font-weight: 5;">Rectangle</h3>
+                <div class = "widthRange">
+                    <label>largeur du contour </label>
+                    <input id = "test" 
+                    class = "slider" 
+                    type="range"  
+                    min="1" 
+                    max="100" 
+                    [value]="inputWidthValue" 
+                    (input)="setWidthValue($event.target.value)">
+                    <output class = "field" 
+                    for="test">{{inputWidthValue}}</output>
+                </div>
+                
+                <div class="inputTypes">
+                    <form>
+                    <label> plein avec bordure</label>
+                    <input checked type="radio" name="texture" (click)="setDrawType('border_fill')" value="pattern1"><br>
+                    
+                    <label> plein sans bordure</label>
+                    <input type="radio" name="texture" (click)="setDrawType('fill')" value="pattern2"> <br>
+                    
+                    <label> bordure seulement</label>                        
+                    <input type="radio" name="texture" (click)="setDrawType('border')" value="pattern3"><br>
+                    </form>
+                </div>
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="currentShape === 5">
+            <div id="rectangle">
+                <h3 style="color: blanchedalmond; font-weight: 5;">Ellipse</h3>
+                <div class = "widthRange">
+                    <label>largeur du contour </label>
+                    <input id = "test" 
+                    class = "slider" 
+                    type="range"  
+                    min="1" 
+                    max="100" 
+                    [value]="inputWidthValue" 
+                    (input)="setWidthValue($event.target.value)">
+                    <output class = "field" 
+                    for="test">{{inputWidthValue}}</output>
+                </div>
+                
+                <div class="inputTypes">
+                    <form>
+                    <label> plein avec bordure</label>
+                    <input checked type="radio" name="texture" (click)="setDrawType('border_fill')"  value="pattern1"><br>
+                    
+                    <label> plein sans bordure</label>
+                    <input type="radio" name="texture" (click)="setDrawType('fill')"value="pattern2"> <br>
+                    
+                    <label> bordure seulement</label>                        
+                    <input type="radio" name="texture" (click)="setDrawType('border')"value="pattern3"><br>
+                    </form>
+                </div>
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="currentShape === 2">
+        <div id="line">
+            <h3 style="color: blanchedalmond; font-weight: 5;">Ligne</h3>
+            <div class = "widthRange">
+                <label>largeur du trait </label>
+                <input id = "test" 
+                class = "slider" 
+                type="range"  
+                min="1" 
+                max="100" 
+                [value]="inputWidthValue" 
+                (input)="setWidthValue($event.target.value)">
+                <output class = "field" 
+                for="test">{{inputWidthValue}}</output>
+            </div>
+            
+            <div class="inputTypes">
+                <label> ligne simple</label>
+                <input checked type="radio" name="texture" (click)="setDrawType('no_dot')" value="simple"><br>
+                
+                <label> ligne avec points de jonction</label>
+                <input type="radio" name="texture" (click)="setDrawType('dot')" value="avecPoints"> <br>
+            </div>
+
+            <div class = "radius">
+                <label>rayon des points </label>
+                <input id = "radius" 
+                class = "slider" 
+                type="range"  
+                min="1" 
+                max="50" 
+                [value]="inputRadius" 
+                (input)="setRadius($event.target.value)">
+                <output class = "field" 
+                for="radius">{{inputRadius}}</output>
+            </div>
+        </div>
+        </ng-container>
+
+        <ng-container *ngIf="currentShape === 6">
+            <div id="polygone">
+                <h3 style="color: blanchedalmond; font-weight: 5;">Polygone</h3>
+
+                <div class = "widthRange">
+                    <label>largeur du contour </label>
+                    <input id = "test" 
+                    class = "slider" 
+                    type="range"  
+                    min="1" 
+                    max="100" 
+                    [value]="inputWidthValue" 
+                    (input)="setWidthValue($event.target.value)">
+                    <output class = "field" 
+                    for="test">{{inputWidthValue}}</output>
+                </div>
+
+                <div class = "nbSide">
+                    <label>nombre de coté </label>
+                    <input id = "test" 
+                    class = "slider" 
+                    type="range"  
+                    min="3" 
+                    max="12" 
+                    [value]="nbSide" 
+                    (input)="setNbSide($event.target.value)">
+                    <output class = "field" 
+                    for="test">{{nbSide}}</output>
+                </div>
+                
+                <div class="inputTypes">
+                    <form>
+                            <label> plein avec bordure</label>
+                            <input checked type="radio" name="texture" (click)="setDrawType('border_fill')"  value="pattern1"><br>
+                            
+                            <label> plein sans bordure</label>
+                            <input type="radio" name="texture" (click)="setDrawType('fill')"value="pattern2"> <br>
+                            
+                            <label> bordure seulement</label>                        
+                            <input type="radio" name="texture" (click)="setDrawType('border')"value="pattern3"><br>
+                            </form>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</ul>

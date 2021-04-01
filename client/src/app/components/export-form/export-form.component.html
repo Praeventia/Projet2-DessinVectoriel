@@ -1,0 +1,125 @@
+
+<div id="mainContainer">
+    <h3>Exporter & Envoyer Par Courriel</h3>
+
+    <div id="drawingPreview">
+            <img #preview height="200" width="auto" [src]="imgSrcPNG">
+    </div>
+
+    <br> 
+    <div #confirmation style="display: none; color: rgb(233, 206, 255); margin: auto; width: 50%;">
+        Votre courriel a bien ete envoye !
+    </div>
+
+    <div #error style="display: none; color: rgb(233, 206, 255); margin: auto; width: 50%; padding-left: 15px;">
+        {{errorMessage}}
+    </div>
+    <br>
+
+   <div id="userInputs">
+
+       <div class="inputField">
+           <input class="input"
+           type="text"
+           required
+           title=" "
+           [(ngModel)]="drawingName">
+           <label>Nom: </label>
+        </div>
+
+
+        <div class="inputField">
+            <input class="input"
+            type="text"
+            required
+            title=" "
+            [(ngModel)]="emailInf.email">
+        <label>Courriel: </label>
+     </div>
+        
+    </div>
+    
+    <br>
+
+    <div id="filters">
+
+        <a class="filter" (click)="applyFilter('none')">
+            pas de filtre
+        </a>
+        
+        <a class="filter" (click)="applyFilter('sepia')">
+            sepia
+        </a>
+        
+        <a class="filter" (click)="applyFilter('blur')">
+            blur
+        </a>
+        
+        <a class="filter" (click)="applyFilter('grayscale')">
+            grayscale
+        </a>
+        
+        <a class="filter" (click)="applyFilter('saturate')">
+            saturate
+        </a>
+        
+        <a class="filter" (click)="applyFilter('invert')">
+            invert
+        </a>
+        
+        <a class="filter" (click)="applyFilter('hue-rotate')">
+            hue-rotate
+        </a>
+
+    </div>
+
+    <br>
+
+    <div id="wrapper">
+        <div id="exports">
+            <div class="exportField">
+                Export as svg
+                <a [href]="imgSrcSVGSafe" [download]="drawingName"> 
+                    <fa-icon [icon]="faDownload"></fa-icon>
+                </a>
+            </div>
+            
+            <br>
+            <div class="exportField">
+                Export as png
+                <a [href]="imgSrcPNG" [download]="drawingName"> 
+                <fa-icon [icon]="faDownload"></fa-icon>
+            </a>
+            </div>
+        
+            <br>
+        
+            <div class="exportField">
+                Export as jpg 
+                <a [href]="imgSrcJPG" [download]="drawingName"> 
+                    <fa-icon [icon]="faDownload"></fa-icon>
+                </a>
+            </div>
+        </div>
+
+        <div id="sendEmail">
+
+            <label class="sendEmailField">Envoyer une image svg
+                <input type="radio" checked="checked" name="radio" (click)="setFileType('svg')">
+                <span class="checkmark"></span>
+            </label>
+
+            <label class="sendEmailField">Envoyer une image png
+                <input type="radio" name="radio" (click)="setFileType('png')">
+                <span class="checkmark"></span>
+            </label>
+
+            <label class="sendEmailField">Envoyer une image jpg
+                <input type="radio" name="radio" (click)="setFileType('jpg')">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+    </div>
+
+    <button id="sendEmailButton" type="submit" (click)="sendEmail()">Envoyer le dessin</button>
+</div>

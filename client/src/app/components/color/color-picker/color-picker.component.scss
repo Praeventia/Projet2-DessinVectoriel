@@ -1,0 +1,74 @@
+#box{
+    position: absolute;
+    margin: 10px;
+    margin-left: 15px;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 10px;
+    width: 190px;
+    height: 190px;
+    padding: 8px;
+}
+
+.color{
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+    border: solid 2px black;
+    float: left;
+}
+
+.color:hover{
+    border-color: rgb(184,141,72);
+}
+
+#rigth {
+    margin-left: 5px;
+    float: left;
+    width: 65px;
+    height: 125px;
+}
+
+#secondary{
+    height: 65px;
+    width: 65px;
+}
+
+.fontSizeIcons{
+    font-size: 30px;
+    opacity: 0.7;
+}
+
+#switch{
+    border: none;
+    border-radius: 10px;
+    margin: 5px;
+    height: 45px;
+    width: 55px;
+    background-color: rgb(32,46,83);
+    color: rgb(0,0,0);
+}
+
+#switch:hover{
+    color: rgb(184,141,72);
+}
+
+#old {
+    padding-top:15px;
+    width: 195px;
+}
+
+
+
+.previous-color{
+    float: left;
+    margin: 4px;
+    margin-bottom: 0px;
+    height: 29px;
+    width: 29px;
+    border-radius: 5px;
+    border: solid 2px ;
+}
+
+.previous-color:hover{
+    border-color: rgb(184,141,72);
+}

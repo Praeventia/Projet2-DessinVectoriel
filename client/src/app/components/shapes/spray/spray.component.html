@@ -1,0 +1,53 @@
+<ng-container *ngIf="isVisible()">
+
+<svg *ngIf="description">
+
+    <g *ngIf="isRed()">
+        
+    <circle class = "shape" *ngFor="let coord of description.coordinates"
+
+    r="8.5"
+    [attr.cx] = "coord.x"
+    [attr.cy] = "coord.y"
+    fill = "none"
+    stroke-width = "5"
+    [attr.stroke]="getRed()"    />
+
+    </g>
+
+    <circle class = "shape" *ngFor="let coord of description.coordinates"
+    (click)="paint(true)"
+
+    r="6"
+    opacity = "0.5"
+    [attr.cx] = "coord.x"
+    [attr.cy] = "coord.y"
+    [attr.fill] = "description.fillColor"
+    [attr.transform]="'translate('+description.moveCoords.x+','+description.moveCoords.y+')
+                       rotate('+description.rotateAngle+','+description.origin.x+','+description.origin.y+')
+                       rotate('+description.shiftRotateAngle+','+description.shiftOrigin.x+','+description.shiftOrigin.y+')'"
+    (mousedown)="shapeIsClicked()"
+    />
+
+    <g *ngIf="isErase()" pointer-event = "none" >
+
+        <circle class = "target" *ngFor="let coord of description.coordinates"
+    
+        (mouseover)="over()"
+        (mouseleave)="leave()"
+
+        r="6"
+        [attr.cx] = "coord.x"
+        [attr.cy] = "coord.y"
+        [attr.stroke-width]="getEtra()*2"
+
+        pointer-events = "all"
+        fill = "none"
+        stroke = "none"
+        />
+    
+    </g>
+
+</svg>
+
+</ng-container>

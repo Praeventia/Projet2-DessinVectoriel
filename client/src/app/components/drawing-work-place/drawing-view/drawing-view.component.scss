@@ -1,0 +1,95 @@
+body{
+  height: 100%;
+  overflow:hidden;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 65px;
+  background-color: rgb(100,100,120);
+  position: fixed; 
+  height: 100%;
+  overflow-y: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  border-style: solid;
+  border-width: 0px 2px 0px 0px;
+  border-color: rgb(32,46,88);
+}
+
+#grid-container {
+  display: grid;
+  min-height: 100px;
+  grid-auto-flow: row;
+  grid-gap: 0px;
+  padding-top: 0;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  grid-template-rows: 23fr auto 3fr;
+}
+
+.sub-item {
+  display: grid;
+}
+
+// subtle scrollbar for the menu
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+li {
+  cursor: pointer;
+}
+
+a {
+  text-align: center;
+}
+
+li a {
+  display: block;
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  opacity: 0.6;
+  transition: 0.3s;
+  
+}
+    
+.hover:hover {
+    background-color: #555;
+    color: white;
+    opacity: 1;
+}
+
+.colorActive{
+  background-color: rgb(32,46,83);
+}
+
+//Push the workzone to have space for the toolOption
+.pushDrawingArea {
+  margin-left: 300px;
+}
+
+.noPushDrawingArea {
+  margin-left: 67px;
+}
+
+/*To display both drawing-view and draw       ng-area properly*/
+#mainGridContainer{
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  padding-top: 0;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  padding-bottom: 0px;
+  overflow: auto;
+}
+
+.buttonDisabled{
+  background-color: rgb(100,100,120);
+  opacity: 0.5;
+}
