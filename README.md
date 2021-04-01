@@ -23,13 +23,6 @@ Une page menant vers `http://localhost:4200/` s'ouvrira automatiquement.
 Pour le serveur :
 Votre serveur est accessible sur `http://localhost:3000`. Par défaut, votre client fait une requête `GET` vers le serveur pour obtenir un message.
 
-L'application se relancera automatiquement si vous modifiez le code source de celle-ci.
-
-## Génération de composants du client
-
-Pour créer de nouveaux composants, nous vous recommandons l'utilisation d'angular CLI. Il suffit d'exécuter `ng generate component component-name` pour créer un nouveau composant.
-
-Il est aussi possible de générer des directives, pipes, services, guards, interfaces, enums, muodules, classes, avec cette commande `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Exécution des tests unitaires
 
@@ -42,13 +35,3 @@ Il est aussi possible de générer des directives, pipes, services, guards, inte
 -   Exécuter `npm run lint` pour lancer TSLint.
 
 -   Exécuter `npm run lint -- --fix` ou `yarn lint --fix` pour régler automatiquement certaines erreurs de lint.
-
-## Aide supplémentaire
-
-Pour obtenir de l'aide supplémentaire sur Angular CLI, utilisez `ng help` ou [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-
-Pour la documentation d'Angular, vous pouvez la trouver [ici](https://angular.io/docs)
-
-Pour la documentation d'Express, vous pouvez la trouver [ici](https://expressjs.com/en/4x/api.html)
-
-Pour obtenir de l'aide supplémentaire sur les tests avec Angular, utilisez [Angular Testing](https://angular.io/guide/testing)
